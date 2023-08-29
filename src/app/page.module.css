@@ -1,10 +1,11 @@
 .main {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 6rem;
   min-height: 100vh;
+  font-family: "Poppins", sans-serif;
 }
 
 .description {
@@ -97,7 +98,7 @@
 
 .center::before,
 .center::after {
-  content: '';
+  content: "";
   left: 50%;
   position: absolute;
   filter: blur(45px);
@@ -226,4 +227,133 @@
   to {
     transform: rotate(0deg);
   }
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  font-family: "Poppins", sans-serif;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 7px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+}
+
+.form h1 {
+  width: 100%;
+  text-align: center;
+}
+
+.form form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 5px 0;
+  width: 100%;
+}
+
+.form :where(.username, .email, .password, .npassword, .confirmnpassword) {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+}
+
+.form
+  :where(.username, .email, .password, .npassword, .confirmnpassword)
+  label {
+  position: relative;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 5px 0;
+}
+
+.form
+  :where(.username, .email, .password, .npassword, .confirmnpassword)
+  input {
+  padding: 10px;
+  border: 1px solid #232323;
+  background-color: transparent;
+  font-size: 16px;
+  border-radius: 2px;
+}
+
+.form
+  :where(.username, .email, .password, .npassword, .confirmnpassword)
+  input:focus {
+  outline: none;
+}
+
+.form p {
+  width: 100%;
+  text-align: center;
+  margin-top: 5px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.form p a {
+  color: blue;
+  text-decoration: underline;
+}
+
+.form button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  outline: none;
+  background-color: #232323;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+}
+
+.profilepage {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.profilepage hr {
+  width: 100%;
+}
+
+.profilepage button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  background-color: #232323;
+  cursor: pointer;
+}
+
+.userinfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.main button{
+  cursor: pointer;
 }
