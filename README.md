@@ -1,5 +1,22 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Set Up Mailtrap
+
+- Go to the [Mailtrap](https://mailtrap.io/) and open a new account in mailtrap
+- Then go to the email testing section till now this website mail is limited to testing phase
+- Then go to inboxes if not present create one
+- Then in the integration search for `nodemailer` as we are using Node.js
+- Then copy the code and go to `src/helpers/Mailer.ts` and you will find the similar piece of code paste there but carefully look at the variable names
+- Finally add the user and password of mailtrap as a `.env` variable and give name as `MAILTRAP_USER` and `MAILTRAP_PASSWORD` respectively
+
+## Add other .env variables
+
+- As this project using mongoDB you can use your local mongoDB server or mongoDB Atlas. Main thing is just add the connection url in the `.env` file as `MONGO_URL`
+
+- Before hosting the project add the `http://localhost:3000` as a  `DOMAIN` variable in the `.env` file
+
+- As we using JWT for authentication add your choose string as `TOKEN_SECRET` variable in the `.env` file but your given string must be long for better working
+
 ## Getting Started
 
 First, run the development server:
