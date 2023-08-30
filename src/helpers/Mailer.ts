@@ -8,12 +8,16 @@ export const sendEmail = async ({ email, emailType, userId }: any) => {
   try {
     //hashing the user id for security purpose and update the user in the database
     const hashedToken = await bcryptjs.hash(userId.toString(), 10);
+
+    //updating the user in the database with the hashed token and token expiry time for verification
     if (emailType === "VERIFY") {
       await User.findByIdAndUpdate(userId, {
         verifyToken: hashedToken,
         verifyTokenExpiry: Date.now() + 3600000,
       });
     }
+
+    //updating the user in the database with the hashed token and token expiry time for reset password
     if (emailType === "RESET") {
       await User.findByIdAndUpdate(userId, {
         forgotPasswordToken: hashedToken,
@@ -48,6 +52,7 @@ export const sendEmail = async ({ email, emailType, userId }: any) => {
        </p>`,
     };
 
+    //sending email to user
     const mailResponse = await transporter.sendMail(mailOptions);
     return mailResponse;
   } catch (error: any) {

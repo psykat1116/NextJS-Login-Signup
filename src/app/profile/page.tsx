@@ -9,6 +9,8 @@ import { useRouter } from "next/navigation";
 const page = () => {
   const [data, setData] = useState("");
   const router = useRouter();
+
+  //logout the user by calling the api
   async function handleLogout() {
     try {
       await axios.get("/api/users/logout");
@@ -19,6 +21,7 @@ const page = () => {
     }
   }
 
+  //get user details by calling the api
   const getUserDetails = async () => {
     const res = await axios.get("/api/users/me");
     setData(res.data.data._id);

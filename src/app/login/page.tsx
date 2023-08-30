@@ -15,6 +15,7 @@ const page = () => {
   const [buttondisable, setButtondisable] = useState(false);
   const [loading,setLoading] = useState(false);
 
+  //login the user by calling the api
   const onLoginup = async (e: any) => {
     e.preventDefault();
     try {
@@ -30,10 +31,12 @@ const page = () => {
     }
   };
 
+  //handle the change in the input field
   function handleChange(e: any) {
     setUser({ ...user, [e.target.name]: e.target.value });
   }
 
+  //check the length of the password and username
   useEffect(() => {
     if (
       user.password.length > 5 &&

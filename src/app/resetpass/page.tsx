@@ -14,6 +14,7 @@ export default function page() {
   });
   const { npassword } = userpassword;
 
+  //call the api to reset password accoring to that showing the HTML content
   const recoverPassword = async () => {
     try {
       const response = await axios.put("/api/users/resetpass", {
@@ -21,13 +22,13 @@ export default function page() {
         npassword,
       });
       setSuccess(true);
-      alert("Password Changed Successfully");
     } catch (error: any) {
       setError(true);
       console.log(error);
     }
   };
 
+  //get token from url
   useEffect(() => {
     const url = window.location.search;
     const urltoken = url.split("=")[1];
@@ -72,13 +73,13 @@ export default function page() {
               />
             </div>
           </form>
-          <button onClick={recoverPassword}>Change Password</button>
+          <button onClick={recoverPassword}>Update Password</button>
         </div>
       )}
       {success && (
         <div className={style.form}>
           <form>
-            <h1>Email Verified</h1>
+            <h1>Password Changed Successfully</h1>
             <button>
               <Link href="/login">Login</Link>
             </button>
@@ -87,7 +88,7 @@ export default function page() {
       )}
       {error && (
         <div className={style.form}>
-          <h1>Error Occured</h1>
+          <h1>OOPS! Some Error Occured</h1>
         </div>
       )}
     </div>

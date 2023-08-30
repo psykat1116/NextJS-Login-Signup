@@ -4,6 +4,8 @@ import style from "../../page.module.css";
 import axios from "axios";
 
 const userProfile = async ({ params }: any) => {
+
+  //get user details by calling the api and show them
   const res = await axios.get("/api/users/me");
   const { username, email } = res.data.data;
 
